@@ -1,6 +1,7 @@
 class Api::V1::ReviewsController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
     before_action :find_episode, only: [:create, :destroy]
+    before_action :authorize_user!, only: [:edit, :update, :destroy]
 
     def create
       @review = Review.new review_params
@@ -31,4 +32,15 @@ class Api::V1::ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:body)
     end
+
+    def authorize_user!
+      unless can?(:crud, @review)
+          render( 
+              json: { 
+                  status: 401 
+              }, 
+              status: 401 
+          )
+      end
+  end
 end

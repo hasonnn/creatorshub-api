@@ -10,7 +10,8 @@ class Api::V1::EpisodesController < ApplicationController
 
     def show
         if @episode
-            render json: @episode
+            render json: @episode,
+            include: [ :author, { reviews: [ :author ] } ]
         else 
             render json: { error: "Episode not found!"}
         end
