@@ -52,7 +52,7 @@ C3_episodes = [
 
 C3 = Course.create(
     title: "Learn to Use Adobe Suite", 
-    description: "This course will give you the knowledge to understand and use the different Adobe applications including Photoshop, Illustrator, Lightroom and Premiere Pro. ", 
+    description: "This course will give you the knowledge to understand and use the different Adobe applications including Photoshop, Illustrator and Premiere Pro.", 
     user_id: 1
 )
 if C3.persisted?
