@@ -19,8 +19,8 @@ C1_episodes = [
 ]
 
 C1 = Course.create(
-    title: "Learn How Bake at Home", 
-    description: "This course will teach you the skills needed to bake the perfect pastry.",
+    title: "Baking at Home", 
+    description: "This course will dive deep into creating world famous pastries including personalized recipes, step-by-step instructions and best practices. Our instructors will teach you everything you need to know about baking at home.",
     user_id: 1
 )
 if C1.persisted?
@@ -35,8 +35,8 @@ C2_episodes = [
 ]
 
 C2 = Course.create(
-    title: "Learn How to Care for your Houseplants", 
-    description: "This course shows you how to Care for your Houseplants.", 
+    title: "Houseplant Care 101", 
+    description: "New to being a plant parent? Don't know the first thing of caring for your houseplant? This course will teach you everything you need to know including how much light, how to water and many more.", 
     user_id: 1
 )
 if C2.persisted?
@@ -44,8 +44,21 @@ if C2.persisted?
 end
 
 # COURSE 3
-C3 = Course.create(title: "Learn How to Use Adobe Photoshop", description: "This course shows you how to use Adobe Photoshop.", user_id: 1)
+C3_episodes = [
+    {title: "Adobe Suite: Illustrator", description: "This tutorial covers the basics of getting started inside Adobe Illustrator! I walk through how to set up documents, how to create and modify type, how to draw basic shapes and also give them rounded corners, give a very basic overview of using the pen tool, and then finish showing the brush and blob brush tools.", url: "https://www.youtube.com/embed/AinkCNooh2A", user_id: 1},
+    {title: "Adobe Suite: Photoshop", description: "This tutorial was made to familiarize anyone to using Adobe Photoshop, and start creating awesome graphic design and projects today! This long video is a 5-Section tutorial that was designed to be a resource which could be used if one wishes to improve upon/ learn one certain aspect covered in the basics, however if you are a complete beginner, I recommend you follow along the whole way though this tutorial, so hopefully by the end of it, you will be alot more confident with your knowledge and ability as you continue getting more comfortable with the program!", url: "https://www.youtube.com/embed/pFyOznL9UvA", user_id: 1},
+    {title: "Adobe Suite: Premiere Pro", description: "From start to finish, this beginners guide will teach you the absolute basics to edit videos… There’s not a day that goes by that we don’t get an email or comment on one of our videos asking questions like “What video editor do you use” or “How do you edit your videos”? So, in this video I will show you how to use the video editing software Adobe Premiere Pro. This guide for beginners will primarily cover the basics to help you get started along with a few tips included for intermediate users as well.", url: "https://www.youtube.com/embed/CYeXf3lzNM8", user_id: 1}
+]
 
-C4 = Course.create(title: "Learn How to Invest", description: "This course shows you how to invest.", user_id: 1)
+C3 = Course.create(
+    title: "Learn to Use Adobe Suite", 
+    description: "This course will give you the knowledge to understand and use the different Adobe applications including Photoshop, Illustrator and Premiere Pro.", 
+    user_id: 1
+)
+if C3.persisted?
+    C3.episodes = C3_episodes.map {|ep| Episode.new ep}
+end
+
+C4 = Course.create(title: "Investing Made Easy", description: "Confused about how to invest? This course will provide you beginner tips, allows you to understand the risks, and ways to diversify your investments.", user_id: 1)
 
 

@@ -13,11 +13,3 @@ class CourseSerializer < ActiveModel::Serializer
     has_many(:reviews)
   end
 end
-
-
-class ReviewSerializer < ActiveModel::Serializer
-  attributes(:id, :body, :created_at)
-
-  belongs_to(:user)
-  belongs_to(:episode)
-end
